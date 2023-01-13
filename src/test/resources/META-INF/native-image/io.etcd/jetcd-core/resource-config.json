@@ -1,0 +1,24 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"\\QMETA-INF/services/io.grpc.LoadBalancerProvider\\E"
+    }, 
+    {
+      "pattern":"\\QMETA-INF/services/io.grpc.NameResolverProvider\\E"
+    }, 
+    {
+      "pattern":"\\QMETA-INF/services/org.junit.platform.engine.TestEngine\\E"
+    }, 
+    {
+      "pattern":"\\QMETA-INF/services/org.junit.platform.launcher.TestExecutionListener\\E"
+    }, 
+    {
+      "pattern":"\\Qmockito-extensions/org.mockito.plugins.MockMaker\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"
+    }
+  ]},
+  "bundles":[]
+}

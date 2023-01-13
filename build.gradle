@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'org.graalvm.buildtools.native' version '0.9.19'
+}
+
+group 'com.lingh'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    testImplementation 'io.etcd:jetcd-core:0.7.5'
+    testImplementation 'io.etcd:jetcd-test:0.7.5'
+    testImplementation 'org.mockito:mockito-core:4.11.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.11.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+graalvmNative {
+    binaries {
+        test {
+            verbose = true
+        }
+    }
+    agent {
+        defaultMode = "standard"
+        modes {
+            conditional {
+                userCodeFilterPath = "user-code-filter.json"
+            }
+        }
+        metadataCopy {
+            mergeWithExisting = true
+            inputTaskNames.add("test")
+            outputDirectories.add("src/test/resources/META-INF/native-image/io.etcd/jetcd-core")
+        }
+    }
+    metadataRepository {
+        enabled = true
+    }
+}
