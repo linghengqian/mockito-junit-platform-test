@@ -1,4 +1,5 @@
 - Served at https://github.com/oracle/graalvm-reachability-metadata/pull/170
+  and https://github.com/mockito/mockito/issues/2862
 - It can be reproduced in an Ubuntu instance by performing the following steps.
 
 ```shell
